@@ -18,7 +18,9 @@ const Home = () => {
           <div className="mb-8">
             So why wait? Support a tech enthusiast journey today!
           </div>
-          {error ? (
+          {!window?.web3 || !window.ethereum ? (
+            <a href="https://metamask.io/">Please install metamask</a>
+          ) : error ? (
             <div>
               {error instanceof UnsupportedChainIdError
                 ? "Unsupported network"
